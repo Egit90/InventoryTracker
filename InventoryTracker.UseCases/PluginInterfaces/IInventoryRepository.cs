@@ -10,5 +10,6 @@ namespace InventoryTracker.UseCases.PluginInterfaces
     public interface IInventoryRepository
     {
         Task<IEnumerable<Inventory>> GetInventoryByNameAsync(string name);
+        Task AddInventoryItemAsync(Inventory item);
     }
 }

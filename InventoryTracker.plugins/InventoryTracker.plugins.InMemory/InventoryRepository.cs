@@ -1,5 +1,7 @@
 ﻿using InventoryTracker.CoreBussiness;
 using InventoryTracker.UseCases.PluginInterfaces;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace InventoryTracker.plugins.InMemory
 {
@@ -24,6 +26,26 @@ namespace InventoryTracker.plugins.InMemory
         {
             if (string.IsNullOrEmpty(name)) return await Task.FromResult(_inventories);
             return _inventories.Where(x => x.InventoryName.Contains(name, StringComparison.OrdinalIgnoreCase));
+        }
+        public Task AddInventoryItemAsync(Inventory item)
+        {
+            if ( _inventories.Any(x=> x.InventoryName.Equals(item.InventoryName , StringComparison.OrdinalIgnoreCase)) && item.InventoryName != "" && item.Quantity != 0)
+            {
+                var existingInventory = _inventories.Find(x => x.InventoryName.Equals(item.InventoryName, StringComparison.OrdinalIgnoreCase));
+                if (existingInventory != null)
+                {
+                    existingInventory.Quantity += item.Quantity;
+                }
+                return Task.CompletedTask;
+            }
+            if ( item.InventoryName != "" && item.Quantity != 0)
+            {
+                item.InventoryID = _inventories.Max(x => x.InventoryID) + 1;
+                _inventories.Add(item);
+                return Task.CompletedTask;
+            }
+
+            return Task.CompletedTask;
         }
     }
 }

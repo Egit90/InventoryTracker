@@ -17,6 +17,7 @@
     </tbody>
 
 </table>
+    
 @code {
     private List<Inventory> listInv = new List<Inventory>();
 
@@ -27,5 +28,6 @@
     {
         listInv = (await ViewInventoryByNameUseCase.ExecuteAsync(SearchTerm)).ToList();
     }
+
 
 }
