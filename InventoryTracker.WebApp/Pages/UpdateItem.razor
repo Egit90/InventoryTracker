@@ -1,0 +1,25 @@
+﻿@inject IUpdateInventoryItemUseCase update 
+@inject NavigationManager NM
+@inject IGetItemByIdUseCase getItem
+@page "/updateItem/{Id:int}"
+<h3>UpdateItem</h3>
+<br />
+<InvFieldsComponent InvCallBack="@CallBack" inv="inventoryItem"/>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private Inventory inventoryItem = new Inventory();
+
+    protected override async void OnInitialized()
+    {
+        inventoryItem = await getItem.ExecuteAsync(Id);
+    }
+
+    private async void CallBack(Inventory inv)
+    {
+        await update.ExecuteAsync(inv);
+        NM.NavigateTo("/invoentories");
+    }
+}

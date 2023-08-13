@@ -1,0 +1,32 @@
+﻿@inject NavigationManager NM
+
+<EditForm Model="inv" OnValidSubmit="@Save">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="form-group">
+        <label for="name">Item Name</label>
+        <InputText id="name" @bind-Value="inv.InventoryName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="qty">Item Qty</label>
+        <InputNumber id="qty" @bind-Value="inv.Quantity" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="price">Item Price</label>
+        <InputNumber id="price" @bind-Value="inv.Price" class="form-control" />
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary" onclick="Save">Submit</button>
+    <buton type="button" class="btn btn-primary" @onclick='() => NM.NavigateTo("/invoentories")'>Cancel</buton>
+</EditForm>
+
+@code {
+    [Parameter] public Inventory inv { get; set; } = new Inventory();
+    [Parameter] public EventCallback<Inventory> InvCallBack { get; set; }
+
+    private async Task Save()
+    {
+       await InvCallBack.InvokeAsync(inv);
+    }
+}

@@ -47,5 +47,29 @@ namespace InventoryTracker.plugins.InMemory
 
             return Task.CompletedTask;
         }
+        public Task UpdateItemAsync(Inventory item)
+        {
+            var thisItem = _inventories.Find(x => x.InventoryID.Equals(item.InventoryID));
+
+            if (thisItem != null)
+            {
+                thisItem.InventoryName = item.InventoryName;
+                thisItem.Price = item.Price;
+                thisItem.Quantity = item.Quantity;
+            }
+            return Task.CompletedTask;
+
+        }
+        public Task<Inventory> GetItemById(int id)
+        {
+            var item = _inventories.Find(x => x.InventoryID.Equals(id));
+
+            if(item != null)
+            {
+                return Task.FromResult(item);
+            }
+
+            return Task.FromResult<Inventory>(null);
+        }
     }
 }

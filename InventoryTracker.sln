@@ -5,13 +5,13 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryTracker.WebApp", "InventoryTracker.WebApp\InventoryTracker.WebApp.csproj", "{F4FFD43B-56E4-4EC8-A3D4-5D6688C3AA8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryTracker.UseCases", "InventoryTracker.UseCases\InventoryTracker.UseCases.csproj", "{73870577-C5A6-46A1-9885-CEC27CDD3B38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryTracker.UseCases", "InventoryTracker.UseCases\InventoryTracker.UseCases.csproj", "{73870577-C5A6-46A1-9885-CEC27CDD3B38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryTracker.CoreBussiness", "InventoryTracker.CoreBussiness\InventoryTracker.CoreBussiness.csproj", "{E48B96D9-C5B8-4157-A92B-3A9D7C9A8F58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryTracker.CoreBussiness", "InventoryTracker.CoreBussiness\InventoryTracker.CoreBussiness.csproj", "{E48B96D9-C5B8-4157-A92B-3A9D7C9A8F58}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InventoryTracker.plugins", "InventoryTracker.plugins", "{CD3A602C-1AC4-42DD-A81E-8177BAA28B40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryTracker.plugins.InMemory", "InventoryTracker.plugins\InventoryTracker.plugins.InMemory\InventoryTracker.plugins.InMemory.csproj", "{3B9AA5DE-99AF-48E7-8C32-0AFB8D2FC66E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryTracker.plugins.InMemory", "InventoryTracker.plugins\InventoryTracker.plugins.InMemory\InventoryTracker.plugins.InMemory.csproj", "{3B9AA5DE-99AF-48E7-8C32-0AFB8D2FC66E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
